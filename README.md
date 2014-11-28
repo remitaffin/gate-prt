@@ -5,6 +5,6 @@
 
 3) cd /path/to/your/local/folder/a/creer/
 
-4) git clone git@github.com:<username>/gate-prt.git
+4) git clone git@github.com:remitaffin/gate-prt.git
 
 5) git pull origin master
