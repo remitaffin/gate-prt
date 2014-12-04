@@ -8,3 +8,5 @@
 4) git clone git@github.com:remitaffin/gate-prt.git
 
 5) git pull origin master
+
+6) Et c'est ok
