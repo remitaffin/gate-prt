@@ -11,7 +11,7 @@
 
 
 
-INSTALLTION MAVEN :
+/////////////////////////////// INSTALLTION MAVEN :///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 MAC/LINUX ==> utiliser la commande "export" pour créer les variables denvironnements
 
@@ -35,6 +35,15 @@ WINDOWS :
 7) Assurez vous que "%JAVA_HOME%\bin" est dans le "Path"
 
 8) Installation terminée, pour controler, ouvrir une invite de commande et entrer "mvn --version"
+
+
+///////////////////////////////CONFIGURATION PROXY////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+1) Se rendre dans "...\apache-maven-3.2.3\conf"
+
+2) Ouvrir le fichier settings.xml avec votre éditeur de texte préféré
+
+3) Trouver la partie "proxy" et décommentez/modifier cette partie.
 
 
 
