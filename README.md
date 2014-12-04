@@ -27,6 +27,7 @@ WINDOWS :
 4) Ajoutez mtnt la user variable "M2" avec la valeur "%M2_HOME%\bin"
 
 5) Modifier la variable systeme "Path" et ajouter "%M2%" en début de chaine.
+	(sur MAC/UNIX ==> export PATH=$M2:$PATH)
 
 6) Assurez vous que la variable denvironnement "JAVA_HOME" existe (soit dans user variables soit dans system variables) et que le chemin de votre JDK y figure
   (ex : C:\Program Files\Java\jdk1.7.0_51)
