@@ -13,6 +13,8 @@
 
 INSTALLTION MAVEN :
 
+MAC/LINUX ==> utiliser la commande "export" pour créer les variables denvironnements
+
 WINDOWS :
 
 1) Télécharger Maven     http://maven.apache.org/download.cgi
@@ -24,7 +26,7 @@ WINDOWS :
   
 4) Ajoutez mtnt la user variable "M2" avec la valeur "%M2_HOME%\bin"
 
-5) Modifier la variable systeme "Path" et ajouter "%M2_HOME%\bin" en début de chaine.
+5) Modifier la variable systeme "Path" et ajouter "%M2%" en début de chaine.
 
 6) Assurez vous que la variable denvironnement "JAVA_HOME" existe (soit dans user variables soit dans system variables) et que le chemin de votre JDK y figure
   (ex : C:\Program Files\Java\jdk1.7.0_51)
