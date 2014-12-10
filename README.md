@@ -1,5 +1,12 @@
 CONFIGURATION
 
+/////////////////////////// Récuperer le projet /////////////////////
+
+1) Recuperer le projet : git pull
+2) Avec le terminal, se rendre dans gate-prt (ou il y a le fichier pom.xml)
+3) Dans le terminal, taper la commande: mvn eclipse:eclipse
+4) Importez votre projet depuis eclipse :)
+
 /////////////////////////////// PREMIER PAS :///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 1) Installer [Git pour Windows](http://msysgit.github.io)
