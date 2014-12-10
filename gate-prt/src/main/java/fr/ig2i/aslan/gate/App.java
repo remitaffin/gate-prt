@@ -1,4 +1,4 @@
-package com.mycompany.app;
+package fr.ig2i.aslan.gate;
 
 /**
  * Hello world!
