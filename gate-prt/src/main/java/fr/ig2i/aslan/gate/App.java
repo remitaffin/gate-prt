@@ -1,13 +1,9 @@
 package fr.ig2i.aslan.gate;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
+import gate.util.GateException;
+
+public class App {
+	public static void main(String[] args) throws GateException {
+		System.out.println("Hello World!");
+	}
 }
