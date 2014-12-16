@@ -9,7 +9,6 @@ public class SentenceSplitter extends RegexSentenceSplitter {
 
 	public SentenceSplitter() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 
