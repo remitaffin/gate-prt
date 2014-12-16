@@ -12,7 +12,7 @@ import gate.util.GateException;
 public class App {
 	private static Logger LOGGER = Logger.getRootLogger();
 	static SentenceSplitter s = new SentenceSplitter();
-	static Gazetteer g = new Gazetteer();
+	
 	
 	public static void main(String[] args) throws GateException {
 		//Set log4j.properties path
@@ -24,6 +24,9 @@ public class App {
 			//Initialize Gate
 			Gate.init();
 			LOGGER.info("...GATE initialised");
+			Gazetteer g = new Gazetteer();
+			
+			
 		}
 	}
 }
