@@ -13,11 +13,12 @@ public class App {
 	private static Logger LOGGER = Logger.getRootLogger();
 	static SentenceSplitter s = new SentenceSplitter();
 	static Gazetteer g = new Gazetteer();
+	
 	public static void main(String[] args) throws GateException {
+		//Set log4j.properties path
+		BasicConfigurator.configure();
 		if (!Gate.isInitialised()) {
 			LOGGER.info("Initialising GATE...");
-			//Set log4j.properties path
-			BasicConfigurator.configure();
 			//Set Gate Home
 			System.setProperty("gate.home", "..");
 			//Initialize Gate
