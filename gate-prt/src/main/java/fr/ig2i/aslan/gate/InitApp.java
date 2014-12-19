@@ -1,6 +1,9 @@
 package fr.ig2i.aslan.gate;
 
+import gate.Factory;
 import gate.Gate;
+import gate.creole.ResourceInstantiationException;
+import gate.creole.SerialAnalyserController;
 import gate.util.GateException;
 
 import java.io.File;
@@ -12,6 +15,7 @@ import org.apache.log4j.Logger;
 public class InitApp {
 
 	private static Logger LOGGER = Logger.getRootLogger();
+	private static SerialAnalyserController annieController;
 
 	public static void initGate() throws GateException {
 		BasicConfigurator.configure();/* Set log4j.properties path */
@@ -19,7 +23,6 @@ public class InitApp {
 			LOGGER.info("\nInitialising GATE...");
 			System.setProperty("gate.home", ".."); /* Set Gate Home */
 			Gate.init();
-			LOGGER.info("...GATE initialised");
 		}
 	}
 
@@ -36,6 +39,24 @@ public class InitApp {
 		} catch (GateException ex) {
 			ex.printStackTrace();
 		}
-		LOGGER.info("...ANNIE loaded");
+	}
+
+	public static SerialAnalyserController initAnnie()
+			throws ResourceInstantiationException {
+		LOGGER.info("\nInitialising ANNIE...");
+		return setAnnieController((SerialAnalyserController) Factory
+				.createResource("gate.creole.SerialAnalyserController",
+						Factory.newFeatureMap(), Factory.newFeatureMap(),
+						"ANNIE_" + Gate.genSym()));
+	}
+
+	public static SerialAnalyserController getAnnieController() {
+		return annieController;
+	}
+
+	public static SerialAnalyserController setAnnieController(
+			SerialAnalyserController annieController) {
+		InitApp.annieController = annieController;
+		return annieController;
 	}
 }
