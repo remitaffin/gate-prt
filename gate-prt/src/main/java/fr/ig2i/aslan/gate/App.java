@@ -1,8 +1,10 @@
 package fr.ig2i.aslan.gate;
 
 import fr.ig2i.aslan.gate.alias_matcher.AliasMatcher;
+import fr.ig2i.aslan.gate.document_reset.DocumentReset;
 import fr.ig2i.aslan.gate.sentence_splitter.SentenceSplitter;
 import fr.ig2i.aslan.gate.speech_tagger.SpeechTagger;
+import fr.ig2i.aslan.gate.tokenizer.Tokenizer;
 import gate.Factory;
 import gate.FeatureMap;
 import gate.creole.SerialAnalyserController;
@@ -37,7 +39,12 @@ public class App {
 		 */
 
 		/* 4. Document Reset */
-
+		features.clear();
+		annieController.add(DocumentReset.PR(features));
+		
+		/* 5. Tokenizer */
+		features.clear();
+		annieController.add(Tokenizer.PR(features));
 		/* 6. */
 		/* 7. */
 
