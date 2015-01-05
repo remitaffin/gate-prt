@@ -49,7 +49,7 @@ public class App {
 		annieController.add(Tokenizer.PR(features));
 		
 		/* 7. Gazetteer */
--		Gazetteer g = new Gazetteer();
+		Gazetteer g = new Gazetteer();
 
 		/* 8. Sentences splitter */
 		SentenceSplitter sSplitter = new SentenceSplitter();
