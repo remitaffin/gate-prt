@@ -26,6 +26,7 @@ public class App {
 		/* 3. Initialisze ANNIE */
 		annieController = InitApp.initAnnie();
 
+		/* 4 Set Corpus */
 		/*
 		 * If you want to test each PRs, you just have to set a corpus and
 		 * execute the PR In our case we will make a function to set the corpus
@@ -38,15 +39,16 @@ public class App {
 		 * sSplitter.execute();
 		 */
 
-		/* 4. Document Reset */
+		/* 5. Document Reset */
 		features.clear();
 		annieController.add(DocumentReset.PR(features));
 		
-		/* 5. Tokenizer */
+		/* 6. Tokenizer */
 		features.clear();
 		annieController.add(Tokenizer.PR(features));
-		/* 6. */
-		/* 7. */
+		
+		/* 7. Gazetteer */
+-		Gazetteer g = new Gazetteer();
 
 		/* 8. Sentences splitter */
 		SentenceSplitter sSplitter = new SentenceSplitter();
