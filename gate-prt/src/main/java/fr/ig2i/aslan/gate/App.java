@@ -2,6 +2,7 @@ package fr.ig2i.aslan.gate;
 
 import fr.ig2i.aslan.gate.annie.AliasMatcher;
 import fr.ig2i.aslan.gate.annie.DocumentReset;
+import fr.ig2i.aslan.gate.annie.Gazetteer;
 import fr.ig2i.aslan.gate.annie.SentenceSplitter;
 import fr.ig2i.aslan.gate.annie.SpeechTagger;
 import fr.ig2i.aslan.gate.annie.Tokenizer;
