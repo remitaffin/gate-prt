@@ -1,10 +1,10 @@
 package fr.ig2i.aslan.gate;
 
-import fr.ig2i.aslan.gate.alias_matcher.AliasMatcher;
-import fr.ig2i.aslan.gate.document_reset.DocumentReset;
-import fr.ig2i.aslan.gate.sentence_splitter.SentenceSplitter;
-import fr.ig2i.aslan.gate.speech_tagger.SpeechTagger;
-import fr.ig2i.aslan.gate.tokenizer.Tokenizer;
+import fr.ig2i.aslan.gate.annie.AliasMatcher;
+import fr.ig2i.aslan.gate.annie.DocumentReset;
+import fr.ig2i.aslan.gate.annie.SentenceSplitter;
+import fr.ig2i.aslan.gate.annie.SpeechTagger;
+import fr.ig2i.aslan.gate.annie.Tokenizer;
 import gate.Factory;
 import gate.FeatureMap;
 import gate.creole.SerialAnalyserController;

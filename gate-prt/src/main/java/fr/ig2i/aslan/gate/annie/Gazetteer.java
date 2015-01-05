@@ -1,4 +1,4 @@
-package fr.ig2i.aslan.gate.gazetteer;
+package fr.ig2i.aslan.gate.annie;
 
 import java.io.File;
 import java.net.MalformedURLException;

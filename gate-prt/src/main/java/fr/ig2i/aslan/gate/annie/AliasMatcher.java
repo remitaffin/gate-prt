@@ -1,31 +1,32 @@
-package fr.ig2i.aslan.gate.speech_tagger;
+package fr.ig2i.aslan.gate.annie;
 
 import gate.Factory;
 import gate.FeatureMap;
 import gate.ProcessingResource;
-import gate.creole.POSTagger;
 import gate.creole.ResourceInstantiationException;
 import gate.creole.SerialAnalyserController;
+import gate.creole.orthomatcher.OrthoMatcher;
 
 import org.apache.log4j.Logger;
 
-public class SpeechTagger extends POSTagger {
+public class AliasMatcher extends OrthoMatcher {
 
 	private static final long serialVersionUID = 1L;
 	private static Logger LOGGER = Logger.getRootLogger();
 
-	public SpeechTagger() {
+	public AliasMatcher() {
 		super();
 	}
 
 	public void addPR(FeatureMap features,
 			SerialAnalyserController annieController)
 			throws ResourceInstantiationException {
-		LOGGER.info("\nAdding pos tagger Annie PR...");
+		LOGGER.info("\nAdding OrthoMatcher PR...");
 		features.clear();
-		ProcessingResource posTagger = (ProcessingResource) Factory
-				.createResource("gate.creole.POSTagger", features);
-		annieController.add(posTagger);
-		LOGGER.info("\n...pos tagger Annie PR added\n");
+		ProcessingResource orthoMatcher = (ProcessingResource) Factory
+				.createResource("gate.creole.orthomatcher.OrthoMatcher",
+						features);
+		annieController.add(orthoMatcher);
+		LOGGER.info("\n...OrthoMatcher PR added\n");
 	}
 }

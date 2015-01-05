@@ -1,4 +1,4 @@
-package fr.ig2i.aslan.gate.sentence_splitter;
+package fr.ig2i.aslan.gate.annie;
 
 import org.apache.log4j.Logger;
 

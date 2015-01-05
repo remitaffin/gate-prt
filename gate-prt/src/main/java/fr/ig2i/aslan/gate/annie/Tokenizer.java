@@ -1,4 +1,4 @@
-package fr.ig2i.aslan.gate.tokenizer;
+package fr.ig2i.aslan.gate.annie;
 
 import gate.Factory;
 import gate.FeatureMap;
