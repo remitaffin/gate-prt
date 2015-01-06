@@ -10,7 +10,7 @@ public class AliasMatcher {
 	static ProcessingResource aliasMatcher;
 	public static ProcessingResource PR(FeatureMap features) {
 	    try {
-	    	//Define regExSentenceSplitter Resource by calling the right plugin
+	    	//Define Alias Matcher Resource by calling the right plugin
 	        aliasMatcher = (ProcessingResource)
 	                Factory.createResource("gate.creole.orthomatcher.OrthoMatcher", features);
 	    } catch (Exception e) {
