@@ -57,7 +57,7 @@ public class Gazetteer {
 		try {
 			// Set the ontology parameter with our OWL path 
 			paramOntology.put("rdfXmlURL",
-					new File("../travel.owl").toURL());
+					new File("http://ontologies.semanticarts.com/o/gistCore7.1.owl").toURL());
 			// Create our PR with our previous param
 			ontology = (Ontology) Factory.createResource(
 					"gate.creole.ontology.owlim.OWLIMOntologyLR", paramOntology);
