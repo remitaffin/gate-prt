@@ -7,15 +7,15 @@ import gate.util.Out;
 
 
 public class Tokenizer{
-
+	static ProcessingResource tokenizer;
 	public static ProcessingResource PR(FeatureMap features) {
 	    try {
-		ProcessingResource tokeniser = (ProcessingResource)
+	    	//Define Tokenizer Resource by calling the right plugin
+	    	tokenizer = (ProcessingResource)
 	                Factory.createResource("gate.creole.tokeniser.DefaultTokeniser", features);
-		return tokeniser;
 	    } catch (Exception e) {
 	        Out.prln(e);
-	    }
-	    return null;
+	    }    
+	    return tokenizer;	    
 	}
 }

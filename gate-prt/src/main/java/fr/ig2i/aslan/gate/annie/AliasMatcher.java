@@ -3,30 +3,19 @@ package fr.ig2i.aslan.gate.annie;
 import gate.Factory;
 import gate.FeatureMap;
 import gate.ProcessingResource;
-import gate.creole.ResourceInstantiationException;
-import gate.creole.SerialAnalyserController;
-import gate.creole.orthomatcher.OrthoMatcher;
+import gate.util.Out;
 
-import org.apache.log4j.Logger;
+public class AliasMatcher {
 
-public class AliasMatcher extends OrthoMatcher {
-
-	private static final long serialVersionUID = 1L;
-	private static Logger LOGGER = Logger.getRootLogger();
-
-	public AliasMatcher() {
-		super();
-	}
-
-	public void addPR(FeatureMap features,
-			SerialAnalyserController annieController)
-			throws ResourceInstantiationException {
-		LOGGER.info("\nAdding OrthoMatcher PR...");
-		features.clear();
-		ProcessingResource orthoMatcher = (ProcessingResource) Factory
-				.createResource("gate.creole.orthomatcher.OrthoMatcher",
-						features);
-		annieController.add(orthoMatcher);
-		LOGGER.info("\n...OrthoMatcher PR added\n");
+	static ProcessingResource aliasMatcher;
+	public static ProcessingResource PR(FeatureMap features) {
+	    try {
+	    	//Define regExSentenceSplitter Resource by calling the right plugin
+	        aliasMatcher = (ProcessingResource)
+	                Factory.createResource("gate.creole.orthomatcher.OrthoMatcher", features);
+	    } catch (Exception e) {
+	        Out.prln(e);
+	    }    
+	    return aliasMatcher;	    
 	}
 }

@@ -8,16 +8,15 @@ import gate.util.Out;
 
 
 public class DocumentReset{
-    
+	static ProcessingResource documentReset;
 	public static ProcessingResource PR(FeatureMap features) {
 	        try {
-		    ProcessingResource documentReset = (ProcessingResource)
+		        documentReset = (ProcessingResource)
 		            Factory.createResource("gate.creole.annotdelete.AnnotationDeletePR", features);
-		    return documentReset;
 	        }
 		    catch (ResourceInstantiationException ex) {
 		        Out.prln(ex);
 		    }
-	        return null;
+	        return documentReset;
 	}
 }

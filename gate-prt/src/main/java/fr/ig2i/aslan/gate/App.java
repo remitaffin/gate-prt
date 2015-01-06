@@ -47,18 +47,15 @@ public class App {
 		Gazetteer g = new Gazetteer();
 
 		/* 8. Sentences splitter */
-		SentenceSplitter sSplitter = new SentenceSplitter();
-		sSplitter.addPR(features, annieController);
+		annieController.add(SentenceSplitter.PR(features));
 
 		/* 9. Speech tagger */
-		SpeechTagger speechTagger = new SpeechTagger();
-		speechTagger.addPR(features, annieController);
+		annieController.add(SpeechTagger.PR(features));
 
 		/* 10. */
 
 		/* 11. Alias matcher */
-		AliasMatcher aMatcher = new AliasMatcher();
-		aMatcher.addPR(features, annieController);
+		annieController.add(AliasMatcher.PR(features));
 
 		/* 12. */
 		/* 13. */

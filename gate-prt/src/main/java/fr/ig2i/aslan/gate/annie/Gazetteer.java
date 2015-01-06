@@ -74,21 +74,10 @@ public class Gazetteer {
 			// Creating default parameters
 			FeatureMap params = Factory.newFeatureMap();
 			// Creating Processing Resources for ontoRootGazetteer
-			documentReset = (ProcessingResource) Factory.createResource(
-					"gate.creole.annotdelete.AnnotationDeletePR", params);
-
-			annieEnglishTokenizer = (ProcessingResource) Factory
-					.createResource("gate.creole.tokeniser.DefaultTokeniser",
-							params);
-
-			regExSentenceSplitter = (ProcessingResource) Factory
-					.createResource(
-							"gate.creole.splitter.RegexSentenceSplitter",
-							params);
-
-			posTagger = (ProcessingResource) Factory.createResource(
-					"gate.creole.POSTagger", params);
-
+			documentReset = DocumentReset.PR(params);
+			annieEnglishTokenizer = Tokenizer.PR(params);
+			regExSentenceSplitter = SentenceSplitter.PR(params);
+			posTagger = SpeechTagger.PR(params);
 			morpher = (ProcessingResource) Factory.createResource(
 					"gate.creole.morph.Morph", params);
 
