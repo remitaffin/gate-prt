@@ -44,17 +44,21 @@ public class App {
 		annieController.add(Tokenizer.PR(features));
 		
 		/* 7. Gazetteer */
-		Gazetteer g = new Gazetteer();
+		features.clear();
+		annieController.add(Gazetteer.PR());
 
 		/* 8. Sentences splitter */
+		features.clear();
 		annieController.add(SentenceSplitter.PR(features));
 
 		/* 9. Speech tagger */
+		features.clear();
 		annieController.add(SpeechTagger.PR(features));
 
 		/* 10. */
 
 		/* 11. Alias matcher */
+		features.clear();
 		annieController.add(AliasMatcher.PR(features));
 
 		/* 12. */

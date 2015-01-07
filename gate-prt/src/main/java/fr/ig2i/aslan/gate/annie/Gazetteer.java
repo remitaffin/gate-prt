@@ -15,7 +15,7 @@ public class Gazetteer {
 	private static final long serialVersionUID = 1L;
 	private static Ontology ontology;
 
-	public Gazetteer() {
+	public static ProcessingResource PR() {
 
 		// Instantiate Processing resources variables
 		ProcessingResource documentReset;
@@ -24,7 +24,7 @@ public class Gazetteer {
 		ProcessingResource posTagger;
 		ProcessingResource morpher;
 		ProcessingResource ontoRG;
-		ProcessingResource flexibleGaz;
+		ProcessingResource flexibleGaz = null;
 		
 		// Setting environment
 		File gateHome = Gate.getGateHome();
@@ -106,6 +106,7 @@ public class Gazetteer {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return flexibleGaz;
 
 	}
 
