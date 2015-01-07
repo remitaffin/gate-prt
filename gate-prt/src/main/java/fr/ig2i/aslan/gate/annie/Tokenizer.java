@@ -12,7 +12,7 @@ public class Tokenizer{
 	    try {
 	    	//Define Tokenizer Resource by calling the right plugin
 	    	tokenizer = (ProcessingResource)
-	                Factory.createResource("gate.creole.tokeniser.DefaultTokeniser", features);
+	                Factory.createResource("gate.creole.tokeniser.SimpleTokeniser", features);
 	    } catch (Exception e) {
 	        Out.prln(e);
 	    }    
