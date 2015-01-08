@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import fr.ig2i.aslan.gate.annie.*;
+import gate.AnnotationSet;
 import gate.Corpus;
 import gate.CorpusController;
 import gate.Document;
@@ -18,13 +19,14 @@ import gate.util.GateException;
 import gate.util.Out;
 import gate.util.persistence.PersistenceManager;
 
+
 public class App {
 
 	private static SerialAnalyserController annieController;
 	private static FeatureMap features = Factory.newFeatureMap();
 	private static CorpusController cc;
 	private static Corpus corpus;
-
+	private static String outCorpusFile; 
 	public static void main(String[] args) throws GateException, IOException {
 
 		/* 1. Initialisze GATE library */
@@ -37,7 +39,8 @@ public class App {
 		annieController = InitApp.initAnnie();
 
 		/* 4 Set Corpus */
-		corpus=InitApp.initCorpus(args);
+		URL u = new URL("http://en.wikipedia.org/wiki/Homosexuality");
+		corpus=InitApp.initCorpus(u);
 		annieController.setCorpus(corpus);
 		//params.clear();		
 		
@@ -62,18 +65,19 @@ public class App {
 		features.clear();
 		annieController.add(SpeechTagger.PR(features));
 
-		/* 10. */
-
-		/* 11. Alias matcher */
+		/* 10. Alias matcher */
 		features.clear();
 		annieController.add(AliasMatcher.PR(features));
-
-		/* 12. */
-		/* 13. */
-		/* 14. */
-		/* 15. */
-		/* 16. Set corpus and files */
-		/* 17. Run the PR through the corpus in the ANNIE */
+		System.out.println("TESTING RESOURCES");
+		annieController.getOffendingPocessingResources();
+		System.out.println("BEGIN");
+		
+		/* 17. Run ANNIE */
+		annieController.execute();
+		System.out.println("FINISH");
+		InitApp.printResults();
+		
+		
 
 	}
 }
