@@ -1,10 +1,14 @@
 package fr.ig2i.aslan.gate;
 
+import gate.Corpus;
+import gate.Document;
 import gate.Factory;
+import gate.FeatureMap;
 import gate.Gate;
 import gate.creole.ResourceInstantiationException;
 import gate.creole.SerialAnalyserController;
 import gate.util.GateException;
+import gate.util.Out;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -59,4 +63,36 @@ public class InitApp {
 		InitApp.annieController = annieController;
 		return annieController;
 	}
+	
+	/**
+	 * Initialise le corpus
+	 * @param args   Tableau des paths des documents a inclure au corpus
+	 * @return le corpus complété
+	 */
+	public static Corpus initCorpus(String[] args)
+	{
+		Corpus corpus = null;
+		for(int i = 0; i < args.length; i++) {
+				FeatureMap params = Factory.newFeatureMap();
+				params.put("sourceUrl", args[i].toString());
+				params.put("markupAware", true);
+				params.put("preserveOriginalContent", false);
+				params.put("collectRepositioningInfo", false);
+				params.put("encoding","windows-1252");
+				Out.prln("Creating doc for " + args[i].toString());
+				Document doc = null;
+				try {
+					corpus = Factory.newCorpus("myCorpus");
+					doc = (Document)
+					Factory.createResource("gate.corpora.DocumentImpl", params);
+				} catch (ResourceInstantiationException ex) {
+					ex.printStackTrace();
+				}
+				corpus.add(doc);
+		}
+		if(corpus==null) Out.prln("Corpus is empty");
+		return corpus;
+	}
+	
+	
 }
