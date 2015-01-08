@@ -63,12 +63,16 @@ public class App {
 		/* 10. Alias matcher */
 		features.clear();
 		annieController.add(AliasMatcher.PR(features));
+		
+		/* 11. Pronominal Coreference*/
+		//features.clear();
+		//annieController.add(PronominalCoreference.PR(features));
 
-		/* 11. Test que tous les PR ont les parametres necessaires pour fonctionner */
+		/* 12. Test que tous les PR ont les parametres necessaires pour fonctionner */
 		System.out.println("Test des PR");
 		annieController.getOffendingPocessingResources();
 		
-		/* 11. Executer ANNIE */
+		/* 13. Executer ANNIE */
 		annieController.execute();
 		InitApp.printResults();
 		
