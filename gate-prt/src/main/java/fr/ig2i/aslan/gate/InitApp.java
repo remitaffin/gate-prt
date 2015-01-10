@@ -1,21 +1,26 @@
 package fr.ig2i.aslan.gate;
 
+import gate.Annotation;
 import gate.AnnotationSet;
 import gate.Corpus;
 import gate.Document;
 import gate.Factory;
 import gate.FeatureMap;
 import gate.Gate;
+import gate.corpora.DocumentStaxUtils;
 import gate.creole.ResourceInstantiationException;
 import gate.creole.SerialAnalyserController;
 import gate.util.GateException;
 import gate.util.Out;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.xml.stream.XMLStreamException;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
@@ -104,9 +109,24 @@ public class InitApp {
 		Set<String> annotTypesRequired = new HashSet<String>();
 		annotTypesRequired.add("Token");
 		annotTypesRequired.add("Person");
-		annotTypesRequired.add("Location");
+		annotTypesRequired.add("Number");
+		annotTypesRequired.add("Name");
 		AnnotationSet token = defaultAnnotSet.get(annotTypesRequired);
-		//System.out.println(defaultAnnotSet);
+		  
+		Set<Annotation> peopleAndPlaces =
+		        new HashSet<Annotation>(defaultAnnotSet.get(annotTypesRequired));
+		System.out.println("IZI" + peopleAndPlaces);
+		File f = new File("../outputGateI.xml");
+		try {
+			DocumentStaxUtils.writeDocument(doc, f);
+		} catch (XMLStreamException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 		//save to XML 
 		String xmlDocument = doc.toXml(token, true);

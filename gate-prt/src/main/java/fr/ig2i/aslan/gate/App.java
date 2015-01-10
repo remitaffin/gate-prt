@@ -11,6 +11,7 @@ import gate.Document;
 import gate.Factory;
 import gate.FeatureMap;
 import gate.Gate;
+import gate.ProcessingResource;
 import gate.creole.ResourceInstantiationException;
 import gate.creole.SerialAnalyserController;
 import gate.util.GateException;
@@ -50,7 +51,10 @@ public class App {
 		
 		/* 7. Gazetteer */
 		features.clear();
-		annieController.add(Gazetteer.PR());
+		//annieController.add(Gazetteer.PR());
+		ProcessingResource myAnnieGaz = (ProcessingResource)
+                Factory.createResource("gate.creole.gazetteer.DefaultGazetteer", features);
+        annieController.add(myAnnieGaz);
 
 		/* 8. Sentences splitter */
 		features.clear();
@@ -59,7 +63,19 @@ public class App {
 		/* 9. Speech tagger */
 		features.clear();
 		annieController.add(SpeechTagger.PR(features));
+		
+		/* Semantic Tagger */
+		features.clear();
+		
+		
+features.put("grammarURL","resources/NE/name.jape");
+		ProcessingResource SemanticTagger = (ProcessingResource)
+                Factory.createResource("gate.creole.Transducer", features);
+        annieController.add(SemanticTagger);
+		
 
+		
+		
 		/* 10. Alias matcher */
 		features.clear();
 		annieController.add(AliasMatcher.PR(features));
