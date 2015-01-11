@@ -10,6 +10,7 @@ public class PronominalCoreference {
 	public static ProcessingResource PR(FeatureMap features) {
 		try {
 		    // Defines Pronominal Coreference Resource by calling the right plugin
+			features.put("resolveIt", "true");
 		    pronominalCoref = (ProcessingResource)
 		            Factory.createResource("gate.creole.coref.Coreferencer", features);
 		} catch (Exception e) {

@@ -37,8 +37,7 @@ public class App {
 		URL u = new URL("http://www.remitaffin.fr/aslan/article01.txt");
 		corpus=InitApp.initCorpus(u);
 		annieController.setCorpus(corpus);
-		//params.clear();		
-		
+		//params.clear();
 
 		/* 5. Document Reset */
 		features.clear();
@@ -65,8 +64,8 @@ public class App {
 		annieController.add(AliasMatcher.PR(features));
 		
 		/* 11. Pronominal Coreference*/
-		//features.clear();
-		//annieController.add(PronominalCoreference.PR(features));
+		features.clear();
+		annieController.add(PronominalCoreference.PR(features));
 
 		/* 12. Test que tous les PR ont les parametres necessaires pour fonctionner */
 		System.out.println("Test des PR");
@@ -75,8 +74,6 @@ public class App {
 		/* 13. Executer ANNIE */
 		annieController.execute();
 		InitApp.printResults();
-		
-		
 
 	}
 }
