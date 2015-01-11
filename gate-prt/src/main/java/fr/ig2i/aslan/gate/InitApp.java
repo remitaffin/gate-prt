@@ -103,14 +103,30 @@ public class InitApp {
 		AnnotationSet defaultAnnotSet = doc.getAnnotations();
 		Set<String> annotTypesRequired = new HashSet<String>();
 		annotTypesRequired.add("Token");
+		annotTypesRequired.add("Number");
 		annotTypesRequired.add("Person");
 		annotTypesRequired.add("Location");
+		annotTypesRequired.add("Address");
+		annotTypesRequired.add("Title");
 		AnnotationSet token = defaultAnnotSet.get(annotTypesRequired);
 		//System.out.println(defaultAnnotSet);
 		
 		//save to XML 
 		String xmlDocument = doc.toXml(token, true);
 		Out.print(xmlDocument);
+		
+		/*File f = new File("/output/output1.xml");
+		System.out.println(f.getAbsolutePath());
+
+		try {
+			DocumentStaxUtils.writeDocument(doc, f);
+		} catch (XMLStreamException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
 		
 	}
 }

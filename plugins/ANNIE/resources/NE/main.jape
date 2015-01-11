@@ -15,11 +15,11 @@
 
 MultiPhase:	TestTheGrammars
 Phases:
-numberletter 
+numberletter
 first
 firstname
-name
-name_post
+/*name
+name_post*/
 date_pre
 date
 reldate

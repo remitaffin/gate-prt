@@ -1,5 +1,6 @@
 package fr.ig2i.aslan.gate;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -11,6 +12,7 @@ import gate.Document;
 import gate.Factory;
 import gate.FeatureMap;
 import gate.Gate;
+import gate.corpora.DocumentStaxUtils;
 import gate.creole.ResourceInstantiationException;
 import gate.creole.SerialAnalyserController;
 import gate.util.GateException;
@@ -58,20 +60,24 @@ public class App {
 		/* 9. Speech tagger */
 		features.clear();
 		annieController.add(SpeechTagger.PR(features));
+		
+		/* 10. Transducer */
+		features.clear();
+		annieController.add(Transducer.PR(features));
 
-		/* 10. Alias matcher */
+		/* 11. Alias matcher */
 		features.clear();
 		annieController.add(AliasMatcher.PR(features));
 		
-		/* 11. Pronominal Coreference*/
+		/* 12. Pronominal Coreference*/
 		features.clear();
 		annieController.add(PronominalCoreference.PR(features));
 
-		/* 12. Test que tous les PR ont les parametres necessaires pour fonctionner */
+		/* 13. Test que tous les PR ont les parametres necessaires pour fonctionner */
 		System.out.println("Test des PR");
 		annieController.getOffendingPocessingResources();
 		
-		/* 13. Executer ANNIE */
+		/* 14. Executer ANNIE */
 		annieController.execute();
 		InitApp.printResults();
 
