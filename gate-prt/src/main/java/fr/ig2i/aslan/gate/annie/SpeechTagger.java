@@ -3,12 +3,7 @@ package fr.ig2i.aslan.gate.annie;
 import gate.Factory;
 import gate.FeatureMap;
 import gate.ProcessingResource;
-import gate.creole.POSTagger;
-import gate.creole.ResourceInstantiationException;
-import gate.creole.SerialAnalyserController;
 import gate.util.Out;
-
-import org.apache.log4j.Logger;
 
 public class SpeechTagger{
 	static ProcessingResource POSTagger;
