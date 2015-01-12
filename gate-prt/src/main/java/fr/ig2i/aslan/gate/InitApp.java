@@ -1,5 +1,6 @@
 package fr.ig2i.aslan.gate;
 
+import gate.Annotation;
 import gate.AnnotationSet;
 import gate.Corpus;
 import gate.Document;
@@ -108,6 +109,7 @@ public class InitApp {
 		annotTypesRequired.add("Location");
 		annotTypesRequired.add("Address");
 		annotTypesRequired.add("Title");
+		annotTypesRequired.add("Name");
 		AnnotationSet token = defaultAnnotSet.get(annotTypesRequired);
 		//System.out.println(defaultAnnotSet);
 		
