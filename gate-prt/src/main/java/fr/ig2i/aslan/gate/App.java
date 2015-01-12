@@ -62,7 +62,7 @@ public class App {
 		features.clear();
 		annieController.add(AliasMatcher.PR(features));
 		
-		/* 12. Pronominal Coreference*/
+		/* 12. Pronominal Coreference */
 		features.clear();
 		annieController.add(PronominalCoreference.PR(features));
 
@@ -73,6 +73,7 @@ public class App {
 		/* 14. Executing ANNIE */
 		features.clear();
 		annieController.execute();
+		
 		InitApp.printResults();
 
 	}
