@@ -43,7 +43,8 @@ public class App {
 		
 		/* 7. Gazetteer */
 		features.clear();
-		annieController.add(Gazetteer.PR());
+		annieController.add(DefaultGazetteer.PR(features));
+		//annieController.add(Gazetteer.PR());
 
 		/* 8. Sentences splitter */
 		features.clear();
