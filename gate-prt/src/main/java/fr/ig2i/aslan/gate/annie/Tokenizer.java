@@ -10,7 +10,7 @@ public class Tokenizer{
 	static ProcessingResource tokenizer;
 	public static ProcessingResource PR(FeatureMap features) {
 	    try {
-	    	//Define Tokenizer Resource by calling the right plugin
+	    	// Tokeniser cuts out the input text into tokens/entities
 	    	tokenizer = (ProcessingResource)
 	                Factory.createResource("gate.creole.tokeniser.DefaultTokeniser", features);
 	    } catch (Exception e) {

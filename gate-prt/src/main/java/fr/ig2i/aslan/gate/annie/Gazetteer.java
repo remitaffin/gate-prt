@@ -15,6 +15,8 @@ public class Gazetteer {
 	private static final long serialVersionUID = 1L;
 	private static Ontology ontology;
 
+	// OntoRootGazetteer is a Gazetteer makes lookup request to Ontology, GIST
+
 	public static ProcessingResource PR() {
 
 		// Instantiate Processing resources variables

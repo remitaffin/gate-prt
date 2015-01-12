@@ -7,16 +7,20 @@ import gate.Document;
 import gate.Factory;
 import gate.FeatureMap;
 import gate.Gate;
+import gate.corpora.DocumentStaxUtils;
 import gate.creole.ResourceInstantiationException;
 import gate.creole.SerialAnalyserController;
 import gate.util.GateException;
 import gate.util.Out;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.xml.stream.XMLStreamException;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
@@ -111,24 +115,20 @@ public class InitApp {
 		annotTypesRequired.add("Title");
 		annotTypesRequired.add("Name");
 		AnnotationSet token = defaultAnnotSet.get(annotTypesRequired);
-		//System.out.println(defaultAnnotSet);
 		
-		//save to XML 
+		// output XML to console 
 		String xmlDocument = doc.toXml(token, true);
 		Out.print(xmlDocument);
 		
-		/*File f = new File("/output/output1.xml");
-		System.out.println(f.getAbsolutePath());
-
+		// Generate XML File
+		File f = new File("../output.xml");
 		try {
 			DocumentStaxUtils.writeDocument(doc, f);
 		} catch (XMLStreamException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		
 	}
 }

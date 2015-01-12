@@ -9,6 +9,7 @@ import gate.Factory;
 import gate.FeatureMap;
 import gate.creole.SerialAnalyserController;
 import gate.util.GateException;
+import gate.util.Out;
 
 
 public class App {
@@ -69,6 +70,7 @@ public class App {
 		annieController.getOffendingPocessingResources();
 		
 		/* 14. Executing ANNIE */
+		features.clear();
 		annieController.execute();
 		InitApp.printResults();
 

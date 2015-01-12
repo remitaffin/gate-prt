@@ -11,7 +11,7 @@ public class DocumentReset{
 	static ProcessingResource documentReset;
 	public static ProcessingResource PR(FeatureMap features) {
 	        try {
-	        	////Define DocumentReset Resource by calling the right plugin 
+	        	// Calls the Document Reset that cleans up the document from all previous annotations 
 		        documentReset = (ProcessingResource)
 		            Factory.createResource("gate.creole.annotdelete.AnnotationDeletePR", features);
 	        }
