@@ -71,9 +71,6 @@ public class App {
 		/* 14. Executing ANNIE */
 		annieController.execute();
 		InitApp.printResults();
-		
-		/* OWL Exporter */
-		//Gate.getCreoleRegister().registerDirectories(new File("C:\\Program Files\\GATE-5.1\\plugins\\OWLExporter").toURL());
 
 	}
 }
