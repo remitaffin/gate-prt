@@ -131,4 +131,8 @@ public class InitApp {
 		}
 		
 	}
+	
+	public static String getLang(){
+	    return doc.getFeatures().get("lang") == null ? "unknown" : doc.getFeatures().get("lang").toString();
+	}
 }
