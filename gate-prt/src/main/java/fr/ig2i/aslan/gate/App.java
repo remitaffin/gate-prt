@@ -1,5 +1,6 @@
 package fr.ig2i.aslan.gate;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
@@ -7,6 +8,8 @@ import fr.ig2i.aslan.gate.annie.*;
 import gate.Corpus;
 import gate.Factory;
 import gate.FeatureMap;
+import gate.Gate;
+import gate.ProcessingResource;
 import gate.creole.SerialAnalyserController;
 import gate.util.GateException;
 import gate.util.Out;
@@ -27,16 +30,25 @@ public class App {
 
 		/* 3. Initialize ANNIE */
 		annieController = InitApp.initAnnie();
-
+		
+		 Gate.getCreoleRegister().registerDirectories( 
+			 new File(Gate.getPluginsHome(), "Language_Identification").toURL()); 
+		 
+		 ProcessingResource languageIdentifier = (ProcessingResource) 
+			 Factory.createResource("org.knallgrau.utils.textcat.LanguageIdentifier");
+		 
+		 
 		/* 4 Set Corpus */
-		URL u = new URL("http://www.remitaffin.fr/aslan/article01.txt");
+		URL u = new URL("http://www.remitaffin.fr/aslan/article02.txt");
 		corpus=InitApp.initCorpus(u);
 		annieController.setCorpus(corpus);
+		
+		annieController.add(languageIdentifier);
 
 		/* 5. Document Reset */
 		features.clear();
 		annieController.add(DocumentReset.PR(features));
-		
+				
 		/* 6. Tokenizer */
 		features.clear();
 		annieController.add(Tokenizer.PR(features));
