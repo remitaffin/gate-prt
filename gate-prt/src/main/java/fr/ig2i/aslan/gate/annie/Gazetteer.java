@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import gate.Factory;
 import gate.FeatureMap;
 import gate.Gate;
+import gate.LanguageAnalyser;
 import gate.ProcessingResource;
 import gate.creole.ResourceInstantiationException;
 import gate.creole.ontology.Ontology;
@@ -17,7 +18,7 @@ public class Gazetteer {
 
 	// OntoRootGazetteer is a Gazetteer makes lookup request to Ontology, GIST
 
-	public static ProcessingResource PR() {
+	public static ProcessingResource PR(FeatureMap features) {
 
 		// Instantiate Processing resources variables
 		ProcessingResource documentReset;
@@ -25,8 +26,8 @@ public class Gazetteer {
 		ProcessingResource regExSentenceSplitter;
 		ProcessingResource posTagger;
 		ProcessingResource morpher;
-		ProcessingResource ontoRG;
-		ProcessingResource flexibleGaz = null;
+		LanguageAnalyser ontoRG;
+		LanguageAnalyser flexibleGaz = null;
 		
 		// Setting environment
 		File gateHome = Gate.getGateHome();
@@ -91,8 +92,9 @@ public class Gazetteer {
 			paramsOntoGaz.put("posTagger", posTagger);
 			paramsOntoGaz.put("morpher", morpher);
 			// Creation of the ontoRootGazetteer PR with previous params
-			ontoRG = (ProcessingResource) Factory.createResource(
+			ontoRG = (LanguageAnalyser) Factory.createResource(
 					"gate.clone.ql.OntoRootGaz", paramsOntoGaz);
+			ontoRG.init();
 
 			// Creation of parameter for FlexibleGaz
 			FeatureMap paramsFlexibleGaz = Factory.newFeatureMap();
@@ -100,9 +102,10 @@ public class Gazetteer {
 			paramsFlexibleGaz.put("gazetteerInst", ontoRG);
 			paramsFlexibleGaz.put("inputFeatureNames", "Token.root");
 			// Creation of the flexibleGazetteer PR with previous params
-			flexibleGaz = (ProcessingResource) Factory.createResource(
+			flexibleGaz = (LanguageAnalyser) Factory.createResource(
 					"gate.creole.gazetteer.FlexibleGazetteer",
 					paramsFlexibleGaz);
+			
 
 		} catch (ResourceInstantiationException e) {
 			// TODO Auto-generated catch block
@@ -111,5 +114,6 @@ public class Gazetteer {
 		return flexibleGaz;
 
 	}
+
 
 }

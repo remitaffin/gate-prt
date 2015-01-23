@@ -76,38 +76,42 @@ public class App {
 	        	
 		/* 7. Tokenizer */
 		features.clear();
-		annieController.add(Tokenizer.PR(features));
-		
-		/* 8. Gazetteer */
-		features.clear();
-		annieController.add(DefaultGazetteer.PR(features));
-		//annieController.add(Gazetteer.PR());
+		annieController.add(Tokenizer.PR(features));	
 
-		/* 9. Sentences splitter */
+		/* 8. Sentences splitter */
 		features.clear();
 		annieController.add(SentenceSplitter.PR(features));
 
-		/* 10. Speech tagger */
+		/* 9. Speech tagger */
 		features.clear();
 		annieController.add(SpeechTagger.PR(features));
 		
-		/* 11. Transducer */
+		/* 10. Morpher */
+		features.clear();
+		annieController.add(Morpher.PR(features));
+
+		/* 11. Gazetteer */
+		features.clear();
+		annieController.add(DefaultGazetteer.PR(features));
+		annieController.add(Gazetteer.PR(features));
+
+		/* 12. Transducer */
 		features.clear();
 		annieController.add(Transducer.PR(features));
 
-		/* 12. Alias matcher */
+		/* 13. Alias matcher */
 		features.clear();
 		annieController.add(AliasMatcher.PR(features));
 		
-		/* 13. Pronominal Coreference */
+		/* 14. Pronominal Coreference */
 		features.clear();
 		annieController.add(PronominalCoreference.PR(features));
 
-		/* 14. Testing that all PRs have the required parameters to run */
+		/* 15. Testing that all PRs have the required parameters to run */
 		System.out.println("Testing PRs");
 		annieController.getOffendingPocessingResources();
 		
-		/* 15. Executing ANNIE */
+		/* 16. Executing ANNIE */
 		features.clear();
 		annieController.execute();
 		
