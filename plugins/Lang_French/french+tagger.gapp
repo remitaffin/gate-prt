@@ -298,7 +298,7 @@
               <entry>
                 <string>taggerBinary</string>
                 <gate.util.persistence.PersistenceManager-URLHolder>
-                  <urlString>$relpath$../../../../../../usr/local/treetagger-3.2/cmd/tree-tagger-french-utf8</urlString>
+                  <urlString>$relpath$../../../../../../home/linus/Bureau/TreeTagger/cmd/tree-tagger-french</urlString>
                 </gate.util.persistence.PersistenceManager-URLHolder>
               </entry>
               <entry>

@@ -5,7 +5,7 @@ import gate.FeatureMap;
 import gate.ProcessingResource;
 import gate.util.Out;
 
-public class SpeechTagger{
+public class POSTagger{
 	static ProcessingResource POSTagger;
 	public static ProcessingResource PR(FeatureMap features) {
 	    try {
