@@ -42,7 +42,7 @@ public class App {
 		annieController = InitApp.initAnnie();
 		
 		/* 4 Set Corpus */
-		URL u = new URL("http://www.remitaffin.fr/aslan/article01.txt");
+		URL u = new URL("http://nl.wikipedia.org/wiki/Droogte");
 		corpus=InitApp.initCorpus(u);
 		annieController.setCorpus(corpus);
 		
@@ -113,13 +113,18 @@ public class App {
 			    break;
 			case french:
 			    //WARNING !!!! Il faut installer TreeTagger et renseigner l'emplacement de l'executable dans /plugins/Lang_French/french+tagger.gapp, si vous avez la flemme enlevez "+tagger" deux lignes en dessous
-			    CorpusController application =
+			    CorpusController FRController =
 			      (CorpusController)PersistenceManager.loadObjectFromFile(new File(Gate.getPluginsHome(), "Lang_French/french+tagger.gapp"));
-				application.setCorpus(corpus);
-				application.execute();
+				FRController.setCorpus(corpus);
+				FRController.execute();
 				InitApp.printResults();
 			    break;
 			case dutch:
+			    CorpusController NLController =
+			      (CorpusController)PersistenceManager.loadObjectFromFile(new File(Gate.getPluginsHome(), "OpenNLP/resources/opennlp-nl.gapp"));
+				NLController.setCorpus(corpus);
+				NLController.execute();
+				InitApp.printResults();
 			    break;
 			default:  
 			    break; 
