@@ -114,7 +114,7 @@ public class App {
 			case french:
 			    //WARNING !!!! Il faut installer TreeTagger et renseigner l'emplacement de l'executable dans /plugins/Lang_French/french+tagger.gapp, si vous avez la flemme enlevez "+tagger" deux lignes en dessous
 			    CorpusController FRController =
-			      (CorpusController)PersistenceManager.loadObjectFromFile(new File(Gate.getPluginsHome(), "Lang_French/french+tagger.gapp"));
+			      (CorpusController)PersistenceManager.loadObjectFromFile(new File(Gate.getPluginsHome(), "Lang_French/french.gapp"));
 				FRController.setCorpus(corpus);
 				FRController.execute();
 				InitApp.printResults();
