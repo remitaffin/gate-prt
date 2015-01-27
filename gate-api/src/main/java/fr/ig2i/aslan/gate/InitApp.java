@@ -31,11 +31,12 @@ public class InitApp {
 	private static SerialAnalyserController annieController;
 	public static Document doc = null;
 	private static ServletContext context;
+	private static File gateHome;
 
 	public static void initGate() throws GateException {
 		BasicConfigurator.configure();/* Set log4j.properties path */
 		if (!Gate.isInitialised()) {
-			File gateHome = new File(context.getRealPath("/WEB-INF"));
+			gateHome = new File(context.getRealPath("/WEB-INF"));
 			Gate.setGateHome(gateHome);
 			try {
 				Gate.init();
@@ -125,7 +126,7 @@ public class InitApp {
 
 		// output XML to console
 		String xmlDocument = doc.toXml(token, true);
-		Out.print(xmlDocument);
+		//Out.print(xmlDocument);
 
 		// Generate XML File
 		String path = context.getRealPath("/WEB-INF/output");

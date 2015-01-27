@@ -1,14 +1,9 @@
 package fr.ig2i.aslan.gate.restjersey;
 
-import fr.ig2i.aslan.gate.InitApp;
-import gate.Gate;
-import gate.util.GateException;
-
-import java.io.File;
-
-import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+
+import fr.ig2i.aslan.gate.InitApp;
 
 public class GateInitListener implements ServletContextListener {
 
