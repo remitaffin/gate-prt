@@ -38,7 +38,7 @@ public class InitApp {
 		BasicConfigurator.configure();/* Set log4j.properties path */
 		if (!Gate.isInitialised()) {
 			gateHome = new File(context.getRealPath("/WEB-INF"));
-			pluginsHome = new File("/gate-prt/plugins");
+			pluginsHome = new File("/Users/Huey/Documents/prt/plugins");
 			if (Gate.getGateHome() == null) {
 				Gate.setGateHome(gateHome);
 			}
