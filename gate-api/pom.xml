@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>fr.ig2i.aslan</groupId>
 	<artifactId>gate-api</artifactId>
-	<packaging>maven-plugin</packaging>
+	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>gate-api</name>
 	<url>http://maven.apache.org</url>
