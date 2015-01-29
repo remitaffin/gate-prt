@@ -18,6 +18,7 @@ public class Gazetteer {
 
 	// OntoRootGazetteer is a Gazetteer makes lookup request to Ontology, GIST
 
+	@SuppressWarnings("deprecation")
 	public static ProcessingResource PR(FeatureMap features) {
 
 		// Instantiate Processing resources variables
@@ -29,10 +30,8 @@ public class Gazetteer {
 		LanguageAnalyser ontoRG;
 		LanguageAnalyser flexibleGaz = null;
 		
-		// Setting environment
-		File gateHome = Gate.getGateHome();
 		// Set plugin repo
-		File pluginsHome = new File(gateHome, "plugins");
+		File pluginsHome = Gate.getPluginsHome();
 		
 		try {
 			// Loading all the Plugins (ANNIE, Tools, Ontology,
@@ -60,7 +59,7 @@ public class Gazetteer {
 		try {
 			// Set the ontology parameter with our OWL path 
 			paramOntology.put("rdfXmlURL",
-					new File("owl/gistCore7.1.owl").toURL());
+					new File("/gate-prt/owl/gistCore7.1.owl").toURL());
 			// Create our PR with our previous param
 			ontology = (Ontology) Factory.createResource(
 					"gate.creole.ontology.owlim.OWLIMOntologyLR", paramOntology);

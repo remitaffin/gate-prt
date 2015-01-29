@@ -32,12 +32,19 @@ public class InitApp {
 	public static Document doc = null;
 	private static ServletContext context;
 	private static File gateHome;
+	private static File pluginsHome;
 
 	public static void initGate() throws GateException {
 		BasicConfigurator.configure();/* Set log4j.properties path */
 		if (!Gate.isInitialised()) {
 			gateHome = new File(context.getRealPath("/WEB-INF"));
-			Gate.setGateHome(gateHome);
+			pluginsHome = new File("/gate-prt/plugins");
+			if (Gate.getGateHome() == null) {
+				Gate.setGateHome(gateHome);
+			}
+			if (Gate.getPluginsHome() == null) {
+				Gate.setPluginsHome(pluginsHome);
+			}
 			try {
 				Gate.init();
 			} catch (GateException e1) {
@@ -49,8 +56,7 @@ public class InitApp {
 	@SuppressWarnings("deprecation")
 	public static void loadAnnie() {
 		LOGGER.info("\nLoading ANNIE...");
-		File gateHome = Gate.getGateHome();
-		File pluginsHome = new File(gateHome, "plugins");
+		File pluginsHome = Gate.getPluginsHome();
 		try {
 			Gate.getCreoleRegister().registerDirectories(
 					new File(pluginsHome, "ANNIE").toURL());

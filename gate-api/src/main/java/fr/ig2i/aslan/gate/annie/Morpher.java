@@ -14,21 +14,14 @@ public class Morpher {
 	static ProcessingResource morpher;
 	public static ProcessingResource PR(FeatureMap features) {
 	    try {
-	    	// Setting environment
-			File gateHome = Gate.getGateHome();
 			// Set plugin repo
-			File pluginsHome = new File(gateHome, "plugins");
+			File pluginsHome = Gate.getPluginsHome();
 			
 			try {
 				// Loading all the Plugins (ANNIE, Tools, Ontology,
 				// Gazetteer_Ontology_Based)
-				
-				
 				Gate.getCreoleRegister().registerDirectories(
 						new File(pluginsHome, "Tools").toURL());
-				
-			
-				
 			} catch (MalformedURLException ex) {
 				ex.printStackTrace();
 			} catch (GateException ex) {
