@@ -77,10 +77,6 @@ public class App {
 
 		Out.print("Language detected : " + lang + "\n");
 
-		/*
-		 * TODO Add all necessary PRs for FR EN and Dutch load appropriate PRs
-		 * for each language :
-		 */
 		switch (Language.valueOf(lang)) {
 		case english:
 
@@ -128,13 +124,12 @@ public class App {
 			InitApp.printResults();
 			break;
 		case french:
-			// WARNING !!!! Il faut installer TreeTagger et renseigner
-			// l'emplacement de l'executable dans
-			// /plugins/Lang_French/french+tagger.gapp, si vous avez la flemme
-			// enlevez "+tagger" deux lignes en dessous
+			// It's possible to add TreeTagger to the plugin
+			// For that, you just need to add "+tagger" to the path
+			// /plugins/Lang_French/french+tagger.gapp
 			CorpusController FRController = (CorpusController) PersistenceManager
 					.loadObjectFromFile(new File(Gate.getPluginsHome(),
-							"Lang_French/french+tagger.gapp"));
+							"Lang_French/french.gapp"));
 			FRController.setCorpus(corpus);
 			FRController.execute();
 			InitApp.printResults();
